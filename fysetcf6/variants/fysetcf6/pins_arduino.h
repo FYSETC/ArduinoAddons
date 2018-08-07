@@ -85,20 +85,19 @@ static const uint8_t A15 = PIN_A15;
 // A majority of the pins are NOT PCINTs, SO BE WARNED (i.e. you cannot use them as receive pins)
 // Only pins available for RECEIVE (TRANSMIT can be on any pin):
 // (I've deliberately left out pin mapping to the Hardware USARTs - seems senseless to me)
-// Pins: 10, 11, 12, 13,  50, 51, 52, 53,  62, 63, 64, 65, 66, 67, 68, 69
-// 主要用于判断某一个 DIO 是否可以用作管脚改变中断，其实总共是由 24 个管脚改变中断可用，这里做了限制，其他
-// 管脚应该用于他用了
+// Pins: 10, 11, 12, 13,  50, 51, 52, 53,  62, 63, 64, 65, 66, 67, 68, 69 ,73
 #define digitalPinToPCICR(p)    ( (((p) >= 10) && ((p) <= 13)) || \
                                   (((p) >= 50) && ((p) <= 53)) || \
-                                  (((p) >= 62) && ((p) <= 69)) ? (&PCICR) : ((uint8_t *)0) )
+                                  (((p) >= 62) && ((p) <= 69)) || \
+								  ((p) == 73) ? (&PCICR) : ((uint8_t *)0) )
 
 #define digitalPinToPCICRbit(p) ( (((p) >= 10) && ((p) <= 13)) || (((p) >= 50) && ((p) <= 53)) ? 0 : \
                                 ( (((p) >= 62) && ((p) <= 69)) ? 2 : \
-                                0 ) )
+                                ( ((p) == 73) ?1:0 )))
 
 #define digitalPinToPCMSK(p)    ( (((p) >= 10) && ((p) <= 13)) || (((p) >= 50) && ((p) <= 53)) ? (&PCMSK0) : \
                                 ( (((p) >= 62) && ((p) <= 69)) ? (&PCMSK2) : \
-                                ((uint8_t *)0) ) )
+                                ( ((p) == 73) ?(&PCMSK1):((uint8_t *)0) ) ) )
 
 #define digitalPinToPCMSKbit(p) ( (((p) >= 10) && ((p) <= 13)) ? ((p) - 6) : \
                                 ( ((p) == 50) ? 3 : \
@@ -106,7 +105,8 @@ static const uint8_t A15 = PIN_A15;
                                 ( ((p) == 52) ? 1 : \
                                 ( ((p) == 53) ? 0 : \
                                 ( (((p) >= 62) && ((p) <= 69)) ? ((p) - 62) : \
-                                0 ) ) ) ) ) )
+								( ((p) == 73) ? 4 : \
+                                0 ) ) ) ) ) ) )
 
 #define digitalPinToInterrupt(p) ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) >= 18 && (p) <= 21 ? 23 - (p) : NOT_AN_INTERRUPT)))
 
