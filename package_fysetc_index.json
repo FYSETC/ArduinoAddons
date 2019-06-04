@@ -16,10 +16,10 @@
                "category":"Contributed",
                "url":"https://raw.githubusercontent.com/FYSETC/ArduinoAddons/dev/fysetcf6-1.3.0.zip",
                "archiveFileName":"fysetcf6-1.3.0.zip",
-               "checksum":"SHA-256:044FF6E8D1873D43900CA8C67525CC1B238782626BB50077F3C3B3A5791D46D1", 
+               "checksum":"SHA-256:101DCE69BCEA3D2E88F6D37ACB30B9A29EAE7E5A5EDADFD5BCD6DEE042758D0C", 
                "size":"946353",
                "help":{
-                  "online":"http://reprap.org/wiki/fysetc"
+                  "online":"https://wiki.fysetc.com/"
                },
                "boards":[
                   {
