@@ -10,12 +10,43 @@
          },
          "platforms":[
             {
-               "name":"FYSETC_F6 V1.3",
+               "name":"FYSETC_F6",
                "architecture":"avr",
                "version":"1.3.0",
                "category":"Contributed",
                "url":"https://raw.githubusercontent.com/FYSETC/ArduinoAddons/dev/fysetcf6-1.3.0.zip",
                "archiveFileName":"fysetcf6-1.3.0.zip",
+               "checksum":"SHA-256:832F9B0D95377F8FF32B2BE18DAE3027159350091983CAFE443E81771DDACB13", 
+               "size":"946384",
+               "help":{
+                  "online":"https://wiki.fysetc.com/"
+               },
+               "boards":[
+                  {
+                     "name":"fysetcf6"
+                  }
+               ],
+               "toolsDependencies":[
+                  {
+                     "packager":"arduino",
+                     "name":"avr-gcc",
+                     "version":"4.8.1-arduino5"
+                  },
+                  {
+                     "packager":"arduino",
+                     "name":"avrdude",
+                     "version":"6.0.1-arduino5"
+                  }
+               ]
+            }
+			
+			{
+               "name":"FYSETC_F6",
+               "architecture":"avr",
+               "version":"1.4.0",
+               "category":"Contributed",
+               "url":"https://raw.githubusercontent.com/FYSETC/ArduinoAddons/dev/fysetcf6-1.4.0.zip",
+               "archiveFileName":"fysetcf6-1.4.0.zip",
                "checksum":"SHA-256:832F9B0D95377F8FF32B2BE18DAE3027159350091983CAFE443E81771DDACB13", 
                "size":"946384",
                "help":{
